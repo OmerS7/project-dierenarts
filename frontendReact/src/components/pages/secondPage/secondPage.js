@@ -14,7 +14,7 @@ import './_secondPage.style.scss';
 const SecondPage = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [progressFilled, setProgressFilled] = useState(0);
-  const [currentCard, setCurrentCard] = useState(1); // 1 voor Card en 2 voor SummaryCard
+  const [currentCard, setCurrentCard] = useState(1);
   const [formData, setFormData] = useState({});
 
   const headerData = {
