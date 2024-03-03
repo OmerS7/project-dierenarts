@@ -1,5 +1,5 @@
 import React from 'react';
-import logoImage from './logoHappyPaw.png';
+import logoImage from './HappyPaw.png';
 import './_logo.style.scss'
 
 const LogoAtom = ({ alt }) => {

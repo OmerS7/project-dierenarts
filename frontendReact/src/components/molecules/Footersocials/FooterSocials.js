@@ -9,7 +9,7 @@ function SocialFooter({ socialIcons }) {
       <div className="social-row">
         {socialIcons.map((icon, index) => (
           <a key={index} href={icon.link} target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={icon.icon}  />
+            <FontAwesomeIcon icon={icon.icon} size='xs'/>
           </a>
         ))}
       </div>

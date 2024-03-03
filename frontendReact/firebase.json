@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "public": "build",
+    "site": "happypaw-8d4e5f",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

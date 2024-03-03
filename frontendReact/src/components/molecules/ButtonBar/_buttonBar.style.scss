@@ -1,7 +1,7 @@
 .ButtonBar {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     
     @media (max-width: 480px) {
         font-size: 12px; // Adjusted font size for small screens (e.g., mobile)

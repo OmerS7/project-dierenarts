@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './_button.style.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function Button({ primary, size, variant, icon, label, ...props }) {
+function Button({ primary, size, variant, icon, label, onClick, ...props }) {
+  const [isSelected, setIsSelected] = useState(false);
+
+  const handleButtonClick = (event) => {
+    setIsSelected(!isSelected);
+    if (onClick) {
+      onClick(event);
+    }
+  };
+
   return (
-    <button className={`button  ${size} ${variant}`} {...props}>
+    <button
+      className={`button ${size} ${variant} ${isSelected ? 'selected' : ''}`}
+      onClick={handleButtonClick}
+      {...props}
+    >
       {label && <span className="button-text">{label}</span>}
       {icon && <FontAwesomeIcon icon={icon} />}
     </button>

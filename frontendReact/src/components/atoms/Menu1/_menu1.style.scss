@@ -72,10 +72,15 @@
         height: 100%;
         right: 0; // Adjusted font size for small screens (e.g., mobile)
       }
+
+      @media (max-width: 580px) {
+        height: 420px;
+      }
     
       // Media Query for Medium Screens (min-width: 481px) and (max-width: 768px)
       @media (min-width: 481px) and (max-width: 768px) {
-        width: 80%;
+        width: 40%;
+        height: 380px;
         right: 10px;
       }
 

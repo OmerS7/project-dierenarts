@@ -11,7 +11,7 @@ const MenuTrigger = ({ options }) => {
       <div className="MenuTrigger">
         <Hamburger
           toggled={showMenu}
-          color='white'
+          // color='white'
           toggle={() => setMenu(!showMenu)}
           className="HamburgerIcon"
         />

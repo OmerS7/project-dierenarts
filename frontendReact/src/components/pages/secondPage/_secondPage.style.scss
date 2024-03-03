@@ -7,20 +7,36 @@ body{
 .Content{
     display: flex;
     justify-content: center;
-    margin-top: 75px;
     margin-bottom: 75px;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
 
     @media screen and (max-width: 480px) {
 }
 }
 
-.card2{
-    margin-left: 60px;
-    margin-right: 60px;
-    z-index: 2000;
+.content-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 
+  @media screen and (max-width: 580px) {
+    flex-direction: column; // Verander de flexrichting naar kolom voor kleinere schermen
+    align-items: center; // Optioneel: centreer de items op de x-as in de kolomrichting
+  }
+}
+
+.card2 {
+  margin-left: 60px;
+  margin-right: 60px;
+  z-index: 2000;
+
+  @media screen and (max-width: 580px) {
+    margin-left: 0; // Verwijder de linkermarge voor kleinere schermen
+    margin-right: 0; // Verwijder de rechtermarge voor kleinere schermen
+    margin-top: 20px; // Voeg bovenmarge toe voor kleinere schermen (optioneel)
+  }
 }
 
 .buttons-be {
@@ -153,7 +169,36 @@ body{
       flex-direction: column;
     }
     .brown-background {
-      width: 100%;
+      width: 0%;
     }
   
+}
+
+.titel-page2{
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-right: 700px;
+  margin-bottom: 40px;
+  font-size: 45px;
+  font-weight: 200;
+  color: #806f60;
+
+  @media (max-width: 480px) {
+    font-size: 18px; // Adjusted font size for small screens (e.g., mobile)
   }
+
+  @media (min-width: 481px) and (max-width: 768px) {
+    margin-left: 500px;
+    font-size: 30px; // Adjusted font size for medium-sized screens (e.g., tablets)
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+  }
+
+  @media (min-width: 1025px) and (max-width: 1200px) {
+  }
+
+  @media (min-width: 1201px) {
+  }
+}

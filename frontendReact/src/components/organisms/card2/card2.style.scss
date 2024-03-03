@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   max-width: 580px;
-  margin: 20px auto;
   font-family: 'Lexend', sans-serif;
   padding: 35px;
   background-color: #ffffff;
@@ -17,9 +16,7 @@
   }
   
   .buttons-third-row{
-    display: flex;
-    align-items: center;
-    
+    display: flex;  
     .first-button{
       margin-right: 10px;
     }
@@ -27,7 +24,6 @@
   }
   
   .button-bar{
-    background-color: red;
-    padding: none;
+    margin-left: 10px;
   }
 }

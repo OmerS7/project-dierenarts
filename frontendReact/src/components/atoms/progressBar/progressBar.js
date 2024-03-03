@@ -1,44 +1,42 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import './progressBar.style.scss';
+import './progressBar.style.scss'; 
 
-const Progressbar = ({ progressFilled }) => {
-  const [filled, setFilled] = useState(0);
-  const [isRunning, setIsRunning] = useState(false);
+const ProgressBar = ({ progressFilled }) => {
+  const calculateText = () => {
+    let text = '';
+    let textColor = '';
 
-  useEffect(() => {
-    if (filled < 100 && isRunning) {
-      const timeoutId = setTimeout(() => setFilled((prev) => prev + 2), 50);
-      return () => clearTimeout(timeoutId);
+    if (progressFilled <= 25) {
+      text = 'Stap 1/4';
+      textColor = 'gray';
+    } else if (progressFilled <= 50) {
+      text = 'Stap 2/4';
+      textColor = 'gray'; 
+    } else if (progressFilled <= 75) {
+      text = 'Stap 3/4';
+      textColor = 'white';
+    } else {
+      text = 'Je bent klaar!';
+      textColor = 'white'; 
     }
-  }, [filled, isRunning]);
 
-  // Update the filled state based on the progressFilled prop
-  useEffect(() => {
-    setFilled(progressFilled);
-  }, [progressFilled]);
+    return { text, textColor };
+  };
+
+  const { text, textColor } = calculateText();
 
   return (
-    <div>
-      <div className="progressbar">
-        <div
-          style={{
-            height: '100%',
-            width: `${filled}%`,
-            backgroundColor: '#a66cff',
-            transition: 'width 0.5s',
-          }}
-        ></div>
-        <span className="progressPercent">{filled}%</span>
+    <div className="progress-bar-container">
+      <div className="progress-bar" style={{ width: `${progressFilled}%` }}>
+        <div className="progress-text" style={{ color: textColor }}>{text}</div>
       </div>
-      <button className="btn" onClick={() => setIsRunning(true)}>
-      </button>
     </div>
   );
 };
 
-Progressbar.propTypes = {
+ProgressBar.propTypes = {
   progressFilled: PropTypes.number.isRequired,
 };
 
-export default Progressbar;
+export default ProgressBar;

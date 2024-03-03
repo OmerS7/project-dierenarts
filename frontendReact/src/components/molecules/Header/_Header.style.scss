@@ -8,11 +8,20 @@
   // Media Query for Small Screens (max-width: 480px)
   @media (max-width: 480px) {
     padding: 5px; // Adjusted padding for small screens
+    background-color: white;
+    border-bottom: 2px solid rgb(192, 192, 192);
   }
 
   // Media Query for Medium Screens (min-width: 481px) and (max-width: 768px)
   @media (min-width: 481px) and (max-width: 768px) {
+    border-bottom: 0.5px solid rgb(221, 221, 221);
     padding: 8px; // Adjusted padding for medium-sized screens
+  }
+
+  @media (max-width: 580px) {
+    background-color: white;
+    border-bottom: 0.5px solid rgb(221, 221, 221);
+
   }
 
   // Media Query for Large Screens (min-width: 769px) and (max-width: 1024px)

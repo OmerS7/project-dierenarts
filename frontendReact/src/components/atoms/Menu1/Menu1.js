@@ -4,7 +4,6 @@ import './_menu1.style.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Menu = ({ isOpen, options }) => {
-  console.log(options);
     return isOpen ? (
       <div className="Menu">
         {options &&

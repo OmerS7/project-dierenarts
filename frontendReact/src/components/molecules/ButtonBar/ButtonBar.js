@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './_buttonBar.style.scss';
 import Button from '../../atoms/buttons/Button';
