@@ -1,25 +1,25 @@
 import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faPaw, faUser, faCalendar, faEnvelope, faAnglesLeft, faArrowRight, faChevronUp, faCat, faFish, faDove, faKiwiBird, faMouse, faLocust } from '@fortawesome/free-solid-svg-icons';
-import { faTiktok, faXTwitter, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { Link } from 'react-router-dom';
 import Header from '../../molecules/Header/Header';
 import Card from '../../organisms/card/card';
+import Card2 from '../../organisms/card2/card2';
+import CardWithInputs from '../../organisms/card3/card3';
+// import Card4 from '../../organisms/card4/card4';  // Importeer Card4
 import Button from '../../atoms/buttons/Button';
 import CombinedFooter from '../../organisms/FooterDual/CombinedFooter';
+import { faTiktok, faXTwitter, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faHome, faPaw, faUser, faCalendar, faEnvelope, faAnglesLeft, faArrowRight, faChevronUp, faCat, faFish, faDove, faKiwiBird, faMouse, faLocust } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Progressbar from '../../atoms/progressBar/progressBar';
-import SummaryCard from '../../organisms/summaryCard/summaryCard';
-
 import './_secondPage.style.scss';
+
 
 const SecondPage = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [progressFilled, setProgressFilled] = useState(0);
-  const [currentCard, setCurrentCard] = useState(1);
-  const [formData, setFormData] = useState({});
+  const [currentCard, setCurrentCard] = useState(1); // 1 voor Card en 2 voor Card2
 
   const headerData = {
-    logoSrc:'',
-    logoAlt:"Logo HappyPaw",
     menuOptions: [
       { label: 'Home', icon: faHome },
       { label: 'About', icon: faPaw },
@@ -40,7 +40,7 @@ const SecondPage = () => {
   };
 
   const handleNextClick = () => {
-    setProgressFilled(25);
+    setProgressFilled(25); // Set the filled state to 25% on "Next" button click
   };
 
   const cardData = {
@@ -58,10 +58,43 @@ const SecondPage = () => {
     },
   };
 
+  const card2Data = {
+    buttonBarRow1: [
+      { label: 'Nieuwe klant', size: 'large', onClick: () => { /* handle button click */ } },
+      { label: 'Huidige klant', size: 'large', onClick: () => { /* handle button click */ } },
+    ],
+    buttonBarRow2: [
+      { label: '1', size: 'extraSmall', onClick: () => { /* handle button click */ } },
+      { label: '2', size: 'extraSmall', onClick: () => { /* handle button click */ } },
+      { label: '3', size: 'extraSmall', onClick: () => { /* handle button click */ } },
+      { label: '4', size: 'extraSmall', onClick: () => { /* handle button click */ } },
+    ],
+    buttonBarRow3: [
+      { icon: faCat, onClick: () => { /* handle button click */ } },
+      { icon: faFish, onClick: () => { /* handle button click */ } },
+      { icon: faDove, onClick: () => { /* handle button click */ } },
+      { icon: faKiwiBird, onClick: () => { /* handle button click */ } },
+      { icon: faMouse, onClick: () => { /* handle button click */ } },
+      { icon: faLocust, onClick: () => { /* handle button click */ } },
+    ],
+    dropdownOptions: ['Optie 1', 'Optie 2', 'Optie 3'],
+  };
+
+  const footerData = {
+    leftText: ['About HappyPaw', 'Contact us'],
+    rightText: ['HappyPaw 2023 '],
+    socialIcons: [
+      { icon: faXTwitter, link: 'https://twitter.com/' },
+      { icon: faInstagram, link: 'https://www.instagram.com/' },
+      { icon: faYoutube, link: 'https://www.youtube.com/' },
+      { icon: faTiktok, link: 'https://www.tiktok.com/' },
+
+    ],
+  };
+
   const handleNextCard = () => {
-    // Update de voortgang en huidige kaartstatus
-    setProgressFilled((prevProgress) => prevProgress + 33.3);
-    setCurrentCard((prevCard) => (prevCard === 2 ? 3 : prevCard + 1));
+    setProgressFilled((prevProgress) => prevProgress + 33.3); // Verhoog de voortgang met 25% bij elke kaartwisseling
+    setCurrentCard((prevCard) => (prevCard === 3 ? 4 : prevCard + 1));
   };
 
   const handleBackClick = () => {
@@ -90,20 +123,8 @@ const SecondPage = () => {
     }
   };
 
-  const updateFormData = (newData) => {
-    setFormData((prevData) => ({ ...prevData, ...newData }));
-  };
-
-  const footerData = {
-    leftText: ['About HappyPaw', 'Contact us'],
-    rightText: ['HappyPaw 2023 '],
-    socialIcons: [
-      { icon: faXTwitter, link: 'https://twitter.com/' },
-      { icon: faInstagram, link: 'https://www.instagram.com/' },
-      { icon: faYoutube, link: 'https://www.youtube.com/' },
-      { icon: faTiktok, link: 'https://www.tiktok.com/' },
-
-    ],
+  const cardWithInputsData = {
+    title: 'Vul onderstaande gegevens in',
   };
 
   return (
@@ -112,37 +133,33 @@ const SecondPage = () => {
       <main>
         <div className='Content'>
           <div className='titel-page2'>Afspraak maken</div>
-          <div className='content-card'>
+
+            <div className='content-card'>
             <div className="button-wrapper">
               <div className='buttons-be hovered'>
                 <p className='button-text-second-back'>Terug</p>
                 <Button size="extraSmall" icon={faAnglesLeft} className="icon-button-left" onClick={handleBackClick} />
               </div>
             </div>
-
+            
             <div className='card2'>
-              {/* Render de huidige kaart op basis van de huidige kaartstatus */}
-              {currentCard === 1 && <Card {...cardData} updateFormData={updateFormData} />}
-              {/* Nieuwe overzichtskaart met de ingevoerde gegevens */}
-              {currentCard === 2 && <SummaryCard formData={formData} />}
-            </div>
-
-            {/* Volgende knop */}
-            <div className="button-wrapper">
-              <div className='buttons-af hovered'>
-                {/* Controleer de kaartstatus voor het tonen van de juiste knop en verwerkingslogica */}
-                {currentCard === 1 && (
-                  <Button size="extraSmall" icon={faArrowRight} className="icon-button-right" onClick={handleNextCard}>
-                    Volgende
-                  </Button>
-                )}
+                {currentCard === 1 && <Card {...cardData} />}
+                {currentCard === 2 && <Card2 {...card2Data} />}
+                {currentCard === 3 && <CardWithInputs {...cardWithInputsData} />}
+              </div>
+            
+              {/* Volgende knop */}
+              <div className="button-wrapper">
+                <div className='buttons-af hovered'>
+                  <Button size="extraSmall" icon={faArrowRight} className="icon-button-right" onClick={handleNextCard} />
+                <p className='button-text-second-next'>Volgende</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className='progessbar'>
-          <Progressbar progressFilled={progressFilled} />
-        </div>
+            <div className='progessbar'>
+              <Progressbar progressFilled={progressFilled} />
+            </div>
         <div className='brown-background'> </div>
       </main>
 
