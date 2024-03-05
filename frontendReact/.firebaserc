@@ -1,5 +1,9 @@
 {
   "projects": {
-    "default": "dierenartsen-6a022"
-  }
+    "default": "dierenartsen-6a022",
+    "production": "dierenartsen-6a022",
+    "test": "dierenartsen-6a022"
+  },
+  "targets": {},
+  "etags": {}
 }
